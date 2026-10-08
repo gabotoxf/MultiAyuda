@@ -38,19 +38,23 @@ export default function ChatWidget() {
 
 // Hilo conectado al bot de Botpress (UI propia, sin respuestas locales).
 function BpThread() {
-  const { client, messages, isTyping, user, clientState } = useWebchat({ clientId: botpressConfig.clientId, apiUrl: botpressConfig.apiUrl });
+  const { client, messages, isTyping, user, clientState, error } = useWebchat({ clientId: botpressConfig.clientId, apiUrl: botpressConfig.apiUrl });
   const [input, setInput] = useState("");
   const [failed, setFailed] = useState(false);
+  const [pending, setPending] = useState([]);
   const threadRef = useRef(null);
 
   const mine = (m) => m.authorId && user?.userId && m.authorId === user.userId;
   const shown = messages
     .map((m) => ({ from: mine(m) ? "user" : "bot", text: bpText(m) }))
     .filter((m) => m.text);
+  // Eco optimista: tu mensaje se ve al instante aunque el store tarde.
+  const echoed = pending.filter((t) => !shown.some((m) => m.from === "user" && m.text === t));
+  const all = [...shown, ...echoed.map((text) => ({ from: "user", text }))];
 
   useEffect(() => {
     threadRef.current?.scrollTo(0, threadRef.current.scrollHeight);
-  }, [messages, isTyping]);
+  }, [messages, isTyping, pending]);
 
   const send = (raw) => {
     const text = (raw ?? input).trim();
@@ -60,11 +64,16 @@ function BpThread() {
     }
     setInput("");
     setFailed(false);
+    setPending((p) => [...p, text]);
     try {
-      const p = client.sendMessage({ type: "text", text });
-      if (p?.catch) p.catch(() => setFailed(true));
+      const pr = client.sendMessage({ type: "text", text });
+      if (pr?.catch) pr.catch(() => {
+        setFailed(true);
+        setPending((p) => p.filter((x) => x !== text));
+      });
     } catch {
       setFailed(true);
+      setPending((p) => p.filter((x) => x !== text));
     }
   };
 
@@ -75,18 +84,19 @@ function BpThread() {
       setInput={setInput}
       send={send}
       isTyping={isTyping}
-      empty={shown.length === 0}
-      msgs={shown}
+      empty={all.length === 0}
+      msgs={all}
       failed={failed}
       disabled={!client}
       showRestart={clientState === "error"}
       onRestart={restartConversation}
+      errorDetail={error?.message}
       status={STATUS[clientState] ?? STATUS.connecting}
     />
   );
 }
 
-export function ChatUI({ threadRef, input, setInput, send, isTyping, empty, msgs, failed, disabled, showRestart, onRestart, status }) {
+export function ChatUI({ threadRef, input, setInput, send, isTyping, empty, msgs, failed, disabled, showRestart, onRestart, errorDetail, status }) {
   return (
     <div>
       <div className="suggest" style={{ marginBottom: ".9rem" }}>
@@ -100,7 +110,7 @@ export function ChatUI({ threadRef, input, setInput, send, isTyping, empty, msgs
           <div className="msg bot">
             <div className="avatar bot"><Icon name="bot" size={16} /></div>
             <div>
-              <div className="meta">MultiAyuda</div>
+              <div className="meta">MultiBot</div>
               <div className="bubble bot">{GREETING}</div>
             </div>
           </div>
@@ -109,7 +119,7 @@ export function ChatUI({ threadRef, input, setInput, send, isTyping, empty, msgs
           <div key={i} className={`msg ${m.from}`}>
             <div className={`avatar ${m.from === "bot" ? "bot" : "you"}`}><Icon name={m.from === "bot" ? "bot" : "user"} size={15} /></div>
             <div>
-              <div className="meta">{m.from === "bot" ? "MultiAyuda" : "Tú"}</div>
+              <div className="meta">{m.from === "bot" ? "MultiBot" : "Tú"}</div>
               <div className={`bubble ${m.from}`}>{renderRich(m.text)}</div>
             </div>
           </div>
@@ -118,12 +128,12 @@ export function ChatUI({ threadRef, input, setInput, send, isTyping, empty, msgs
           <div className="msg bot">
             <div className="avatar bot"><Icon name="bot" size={16} /></div>
             <div>
-              <div className="meta">MultiAyuda</div>
+              <div className="meta">MultiBot</div>
               <div className="bubble bot typing"><span /><span /><span /></div>
             </div>
           </div>
         )}
-        {failed && <div className="warn">No se pudo enviar el mensaje. Revisa tu conexión e intenta de nuevo.</div>}
+        {failed && <div className="warn">No se pudo enviar el mensaje. Revisa tu conexión e intenta de nuevo.{errorDetail ? ` Detalle: ${errorDetail}` : ""}</div>}
         {showRestart && (
           <div className="warn" style={{ justifyContent: "space-between", alignItems: "center" }}>
             <span>La sesión guardada caducó.</span>

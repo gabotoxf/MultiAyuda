@@ -20,11 +20,12 @@ export default function FloatingChat({ go }) {
 }
 
 function FloatThread({ go }) {
-  const { client, messages, isTyping, user, clientState } = useWebchat({ clientId: botpressConfig.clientId, apiUrl: botpressConfig.apiUrl });
+  const { client, messages, isTyping, user, clientState, error } = useWebchat({ clientId: botpressConfig.clientId, apiUrl: botpressConfig.apiUrl });
   const [open, setOpen] = useState(false);
   const [seen, setSeen] = useState(false);
   const [input, setInput] = useState("");
   const [failed, setFailed] = useState(false);
+  const [pending, setPending] = useState([]);
   const [unread, setUnread] = useState(0);
   const threadRef = useRef(null);
   const inputRef = useRef(null);
@@ -34,6 +35,8 @@ function FloatThread({ go }) {
   const shown = messages
     .map((m) => ({ from: mine(m) ? "user" : "bot", text: bpText(m) }))
     .filter((m) => m.text);
+  const echoed = pending.filter((t) => !shown.some((m) => m.from === "user" && m.text === t));
+  const all = [...shown, ...echoed.map((text) => ({ from: "user", text }))];
   const botCount = messages.filter((m) => !mine(m) && bpText(m)).length;
 
   useEffect(() => {
@@ -45,7 +48,7 @@ function FloatThread({ go }) {
 
   useEffect(() => {
     threadRef.current?.scrollTo(0, threadRef.current.scrollHeight);
-  }, [messages, isTyping, open]);
+  }, [messages, isTyping, open, pending]);
 
   useEffect(() => {
     if (open) {
@@ -70,11 +73,16 @@ function FloatThread({ go }) {
     setInput("");
     setFailed(false);
     setOpen(true);
+    setPending((p) => [...p, text]);
     try {
       const p = client.sendMessage({ type: "text", text });
-      if (p?.catch) p.catch(() => setFailed(true));
+      if (p?.catch) p.catch(() => {
+        setFailed(true);
+        setPending((prev) => prev.filter((x) => x !== text));
+      });
     } catch {
       setFailed(true);
+      setPending((prev) => prev.filter((x) => x !== text));
     }
   };
 
@@ -110,13 +118,13 @@ function FloatThread({ go }) {
             </button>
           </header>
           <div className="float-thread" ref={threadRef} role="log" aria-live="polite">
-            {shown.length === 0 && (
+            {all.length === 0 && (
               <div className="msg bot">
                 <div className="avatar bot"><Icon name="bot" size={14} /></div>
                 <div className="bubble bot">{GREETING}</div>
               </div>
             )}
-            {shown.map((m, i) => (
+            {all.map((m, i) => (
               <div key={i} className={`msg ${m.from}`}>
                 <div className={`avatar ${m.from === "bot" ? "bot" : "you"}`}><Icon name={m.from === "bot" ? "bot" : "user"} size={14} /></div>
                 <div className={`bubble ${m.from}`}>{renderRich(m.text)}</div>
@@ -125,7 +133,7 @@ function FloatThread({ go }) {
             {isTyping && (
               <div className="msg bot"><div className="avatar bot"><Icon name="bot" size={14} /></div><div className="bubble bot typing"><span /><span /><span /></div></div>
             )}
-            {failed && <div className="warn">No se pudo enviar el mensaje. Revisa tu conexión e intenta de nuevo.</div>}
+            {failed && <div className="warn">No se pudo enviar el mensaje. Revisa tu conexión e intenta de nuevo.{error?.message ? ` Detalle: ${error.message}` : ""}</div>}
             {clientState === "error" && (
               <div className="warn" style={{ justifyContent: "space-between", alignItems: "center" }}>
                 <span>La sesión guardada caducó.</span>
