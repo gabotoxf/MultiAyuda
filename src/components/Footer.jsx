@@ -6,7 +6,7 @@ export default function Footer({ go }) {
         <nav>
           <button onClick={() => go("inicio")}>Inicio</button>
           <button onClick={() => go("guia")}>Guía</button>
-          <button onClick={() => go("faq")}>Preguntas</button>
+          <button onClick={() => go("faqs")}>Preguntas</button>
           <button onClick={() => go("chatbot")}>Chatbot</button>
         </nav>
         <div>© 2025 MultiAyuda. Libre de errores.</div>

@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Icon from "../components/Icon.jsx";
 import { guideTabs, goodPractices, terminals } from "../data/content.js";
 
 export default function Guia({ go }) {
@@ -7,7 +8,7 @@ export default function Guia({ go }) {
   return (
     <div className="container" style={{ paddingTop: "2.5rem", paddingBottom: "3rem", display: "flex", flexDirection: "column", gap: "2.5rem" }}>
       <div style={{ textAlign: "center", maxWidth: "38rem", margin: "0 auto" }}>
-        <span className="pill">⚡ Manual Rápido de Laboratorio</span>
+        <span className="pill"><Icon name="bolt" size={14} /> Manual Rápido de Laboratorio</span>
         <h1 className="hero" style={{ fontSize: "2.2rem" }}>Guía Rápida del Multímetro</h1>
         <p className="lead">Paso a paso conciso para configurar tu equipo con seguridad, exactitud y rapidez.</p>
       </div>
@@ -45,7 +46,7 @@ export default function Guia({ go }) {
       </div>
 
       <div className="card">
-        <h2 className="title" style={{ fontSize: "1.1rem" }}>✔ Buenas prácticas y errores más comunes</h2>
+        <h2 className="title" style={{ fontSize: "1.1rem", display: "flex", gap: ".5rem", alignItems: "center" }}><Icon name="check" size={18} /> Buenas prácticas y errores más comunes</h2>
         <div className="cards3" style={{ marginTop: "1rem" }}>
           {goodPractices.map((p) => (
             <div className="step" key={p.title}><h4>{p.title}</h4><p>{p.desc}</p></div>
@@ -55,7 +56,7 @@ export default function Guia({ go }) {
 
       <div className="cta-dark">
         <div><b>¿Dudas con tu modelo específico?</b><p style={{ margin: ".3rem 0 0", fontSize: ".8rem", color: "#cbd5e1" }}>Pregunta al tutor con la referencia de tu instrumento.</p></div>
-        <button className="btn" onClick={() => go("chatbot")}>💬 Consultar Asistente IA</button>
+        <button className="btn" onClick={() => go("chatbot")}><Icon name="chat" size={16} /> Consultar Asistente IA</button>
       </div>
     </div>
   );

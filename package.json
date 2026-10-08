@@ -9,6 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@botpress/webchat": "^5.5.5",
     "caniuse-lite": "^1.0.30001815",
     "react": "^18.3.1",
     "react-dom": "^18.3.1"

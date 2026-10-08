@@ -1,4 +1,5 @@
 import { useMemo, useState } from "react";
+import Icon from "../components/Icon.jsx";
 import FaqAccordion from "../components/FaqAccordion.jsx";
 import { faqs } from "../data/content.js";
 
@@ -16,7 +17,7 @@ export default function Faq({ go }) {
         <h1 className="hero" style={{ fontSize: "2.2rem" }}>Preguntas frecuentes</h1>
         <p className="lead">Dudas esenciales y soluciones directas para medir con seguridad.</p>
         <div className="search-wrap">
-          <span className="ico">🔍</span>
+          <span className="ico"><Icon name="search" size={18} /></span>
           <input value={q} onChange={(e) => setQ(e.target.value)} placeholder="Buscar por tema: puntas, voltaje, OL, continuidad..." />
         </div>
       </div>
@@ -31,7 +32,7 @@ export default function Faq({ go }) {
       </div>
       <div className="card" style={{ marginTop: "2rem", display: "flex", justifyContent: "space-between", flexWrap: "wrap", gap: "1rem", alignItems: "center" }}>
         <div><b style={{ color: "var(--dark)" }}>¿Duda sobre una práctica específica?</b><p style={{ margin: ".2rem 0 0", fontSize: ".78rem", color: "var(--muted)" }}>El asistente responde sobre componentes y diagramas.</p></div>
-        <button className="btn btn-primary btn-sm" onClick={() => go("chatbot")}>💬 Preguntar al chatbot</button>
+        <button className="btn btn-primary btn-sm" onClick={() => go("chatbot")}><Icon name="chat" size={15} /> Preguntar al chatbot</button>
       </div>
     </div>
   );

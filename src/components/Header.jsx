@@ -2,7 +2,7 @@ export default function Header({ page, go }) {
   const items = [
     ["inicio", "Inicio"],
     ["guia", "Guía"],
-    ["faq", "Preguntas frecuentes"],
+    ["faqs", "Preguntas frecuentes"],
     ["chatbot", "Chatbot"],
   ];
   return (

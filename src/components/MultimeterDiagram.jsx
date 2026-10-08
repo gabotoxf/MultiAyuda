@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Icon from "./Icon.jsx";
 import { multimeterParts, dialModes } from "../data/content.js";
 
 const keys = ["screen", "dial", "com", "volts", "current"];
@@ -52,7 +53,7 @@ export default function MultimeterDiagram() {
           <h3 style={{ fontSize: "1.25rem", margin: "0 0 .4rem" }}>{d.title}</h3>
           <p>{d.desc}</p>
         </div>
-        <div className="tip"><div className="tip-inner"><span>💡</span><span>{d.tip}</span></div></div>
+        <div className="tip"><div className="tip-inner"><span style={{ color: "var(--amber)", display: "inline-flex" }}><Icon name="bulb" size={16} /></span><span>{d.tip}</span></div></div>
       </div>
     </div>
   );

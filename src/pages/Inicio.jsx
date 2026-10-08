@@ -1,4 +1,5 @@
 import MultimeterDiagram from "../components/MultimeterDiagram.jsx";
+import Icon from "../components/Icon.jsx";
 import { learnCards, errorCards } from "../data/content.js";
 
 export default function Inicio({ go }) {
@@ -12,7 +13,7 @@ export default function Inicio({ go }) {
             <p className="lead">Domina las mediciones básicas sin quemar fusibles ni arriesgar tus componentes.</p>
             <div className="hero-cta">
               <button className="btn btn-primary" onClick={() => go("guia")}>Comenzar guía →</button>
-              <button className="btn" onClick={() => go("chatbot")}>💬 Consultar chatbot</button>
+              <button className="btn" onClick={() => go("chatbot")}><Icon name="chat" size={16} /> Consultar chatbot</button>
             </div>
             <div className="stats">
               <div><b>100%</b>Práctico</div>
@@ -42,7 +43,7 @@ export default function Inicio({ go }) {
           <h2 className="title">¿Qué aprenderás?</h2>
           <div className="cards4" style={{ marginTop: "1.2rem" }}>
             {learnCards.map((c) => (
-              <div className="card" key={c.title}><div className="icon-box">{c.icon}</div><h3>{c.title}</h3><p>{c.desc}</p></div>
+              <div className="card" key={c.title}><div className="icon-box"><Icon name={c.icon} /></div><h3>{c.title}</h3><p>{c.desc}</p></div>
             ))}
           </div>
         </div>
@@ -55,7 +56,7 @@ export default function Inicio({ go }) {
           <div className="cards3" style={{ marginTop: "1.2rem" }}>
             {errorCards.map((e) => (
               <div className="card" key={e.title}>
-                <div className="icon-box" style={{ background: "#fef2f2", color: e.color }}>{e.icon}</div>
+                <div className="icon-box" style={{ background: "#fef2f2", color: e.color }}><Icon name={e.icon} /></div>
                 <h3>{e.title}</h3><p>{e.desc}</p>
                 <div className="rule"><b>Regla:</b> {e.rule}</div>
               </div>

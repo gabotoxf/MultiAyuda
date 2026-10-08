@@ -17,16 +17,16 @@ export const dialModes = {
 };
 
 export const learnCards = [
-  { icon: "⚡", title: "Medir voltaje", desc: "Conexión en paralelo en corriente continua (DC) y alterna (AC)." },
-  { icon: "🎛", title: "Medir resistencia", desc: "Medición con circuito 100% desenergizado para no dañar el equipo." },
-  { icon: "🔊", title: "Continuidad", desc: "Comprobación sonora de pistas, cables y fusibles en buen estado." },
-  { icon: "⇄", title: "Medir corriente", desc: "Apertura del circuito para conectar el instrumento en serie." },
+  { icon: "bolt", title: "Medir voltaje", desc: "Conexión en paralelo en corriente continua (DC) y alterna (AC)." },
+  { icon: "ohm", title: "Medir resistencia", desc: "Medición con circuito 100% desenergizado para no dañar el equipo." },
+  { icon: "sound", title: "Continuidad", desc: "Comprobación sonora de pistas, cables y fusibles en buen estado." },
+  { icon: "current", title: "Medir corriente", desc: "Apertura del circuito para conectar el instrumento en serie." },
 ];
 
 export const errorCards = [
-  { icon: "↔", color: "#e11d48", title: "Puntas en borne equivocado", desc: "Medir voltaje con la sonda en el borne de corriente provoca cortocircuito inmediato.", rule: "Mantén la punta roja en V/Ω por defecto." },
-  { icon: "⚠", color: "#d97706", title: "Ohmios con energía activa", desc: "Medir resistencia con la fuente encendida altera el valor y quema la protección interna.", rule: "Apaga la fuente antes de medir ohmios." },
-  { icon: "⑂", color: "#2563eb", title: "Amperímetro en paralelo", desc: "Conectar el modo de corriente en paralelo quema el fusible instantáneamente.", rule: "Abre el circuito y mide siempre en serie." },
+  { icon: "plug", color: "#e11d48", title: "Puntas en borne equivocado", desc: "Medir voltaje con la sonda en el borne de corriente provoca cortocircuito inmediato.", rule: "Mantén la punta roja en V/Ω por defecto." },
+  { icon: "alert", color: "#d97706", title: "Ohmios con energía activa", desc: "Medir resistencia con la fuente encendida altera el valor y quema la protección interna.", rule: "Apaga la fuente antes de medir ohmios." },
+  { icon: "current", color: "#2563eb", title: "Amperímetro en paralelo", desc: "Conectar el modo de corriente en paralelo quema el fusible instantáneamente.", rule: "Abre el circuito y mide siempre en serie." },
 ];
 
 export const terminals = [
@@ -92,15 +92,3 @@ export const chatSuggestions = [
   "¿Cómo mido resistencia con seguridad?",
   "¿Por qué la pantalla muestra OL?",
 ];
-
-export function localAnswer(text) {
-  const t = text.toLowerCase();
-  if (t.includes("voltaje") || t.includes("volt")) return "Voltaje en 4 pasos: 1) Negra en COM, roja en V/Ω. 2) Dial en V⎓ (DC) o V~ (AC). 3) Puntas en paralelo al componente. 4) Lee el valor estable. Nunca con la roja en 10A.";
-  if (t.includes("roja") || t.includes("punta") || t.includes("borne") || t.includes("com")) return "Negra siempre en COM. Roja en V/Ω para el 90% de mediciones (V, Ω, continuidad). Solo a mA/10A para corriente en serie.";
-  if (t.includes("resistencia") || t.includes("ohm")) return "Resistencia: apaga la fuente (100% desenergizado), aísla una patilla y mide sin polaridad. Con energía falseas el valor y dañas el equipo.";
-  if (t.includes("continuidad") || t.includes("bip") || t.includes("pit")) return "Continuidad: selector en bocina, verifica juntando puntas (debe pitar), luego toca extremos del cable. Pita si R < 50 Ω.";
-  if (t.includes("ol") || t.includes("fuera") || t.includes("rango") || t.includes("pantalla")) return "“OL” = Over Limit / circuito abierto: sube la escala del dial. No significa daño, solo fuera de rango.";
-  if (t.includes("corriente") || t.includes("amper")) return "Corriente: roja a mA/10A, abre el circuito y mide en serie. Al terminar devuelve la roja a V/Ω.";
-  if (t.includes("fourier") || t.includes("osciloscopio") || t.includes("program")) return "Me centro solo en uso práctico y seguro del multímetro digital. Para Fourier necesitas un osciloscopio con FFT.";
-  return "Para verificar eso, mantén la negra en COM y elige el rango con la fuente apagada antes de medir. Pregunta por voltaje, resistencia, continuidad, corriente u “OL”.";
-}
