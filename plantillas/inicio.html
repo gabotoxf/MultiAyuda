@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+
+<html lang="es">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta content="web_standard" name="shell-type" />
+    <title>MultiAyuda - Guía de Multímetro para Laboratorio</title>
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <style>
+        @layer base {
+
+            html,
+            body {
+                margin: 0;
+                padding: 0;
+            }
+
+            body {
+                overscroll-behavior: none;
+            }
+        }
+
+        ::-webkit-scrollbar {
+            display: none;
+        }
+    </style>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        brand: "#2563eb",
+                        "brand-hover": "#1d4ed8",
+                        "brand-light": "#eff6ff",
+                        dark: "#0f172a",
+                        body: "#334155",
+                        muted: "#64748b",
+                        subtle: "#94a3b8",
+                        surface: "#ffffff",
+                        "surface-muted": "#f8fafc",
+                        "surface-border": "#e2e8f0"
+                    },
+                    fontFamily: {
+                        sans: ["Plus Jakarta Sans", "sans-serif"]
+                    }
+                }
+            }
+        };
+    </script>
+</head>
+
+<body
+    class="bg-white font-sans text-body min-h-screen flex flex-col antialiased selection:bg-brand-light selection:text-brand">
+    <!-- HEADER MINIMALISTA -->
+    <header class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-surface-border">
+        <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <img alt="Logo MultiAyuda" class="h-7 w-auto object-contain"
+                    src="https://lh3.googleusercontent.com/aida/AEtjO1VRWZu5mGNJzT-5g7Dx2OYgu5ruCaCI-BG6UOGJ6Eew4J-FpathKObqK90qLZrGABBjj-p_nej8qYK3OD6kgrM3j0JJPrLYuTutfe27_5N-2wPhMSNWTUPT8TZjnaj6AO_BY_wqthYfjWUz_AkztR4ga3eH8cUxsE5TKfUqKwK3MKYBxdBSZMr0f7tgTj2z0Yk_aGl3WE5qrKbOQxg9tpKMD0rCoQPEGiFbjhMvKovI" />
+                <span class="text-base font-bold text-dark tracking-tight">MultiAyuda</span>
+            </div>
+            <nav class="hidden md:flex items-center gap-7 text-sm font-medium text-muted">
+                <a aria-current="page" class="text-brand font-semibold" data-path="inicio" href="#">Inicio</a>
+                <a class="hover:text-dark transition-colors" data-path="guia-del-multimetro" href="#">Guía</a>
+                <a class="hover:text-dark transition-colors" data-path="preguntas-frecuentes" href="#">Preguntas
+                    frecuentes</a>
+                <a class="hover:text-dark transition-colors" data-path="chatbot" href="#">Chatbot</a>
+            </nav>
+            <div class="flex items-center gap-3">
+                <a class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg border border-surface-border text-xs font-semibold text-dark hover:bg-surface-muted transition-colors"
+                    data-path="chatbot" href="#">
+                    <span class="material-symbols-outlined text-[16px] text-brand">smart_toy</span>
+                    <span>Asistente IA</span>
+                </a>
+            </div>
+        </div>
+    </header>
+    <main class="w-full flex-1">
+        <!-- HERO SECTION LIMPIO Y DESPEJADO -->
+        <section class="max-w-6xl mx-auto px-6 pt-20 pb-20">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+                <div class="lg:col-span-7 space-y-6">
+                    <div
+                        class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-light text-brand text-xs font-medium">
+                        <span class="w-1.5 h-1.5 rounded-full bg-brand"></span>
+                        Laboratorio de Electrónica Inicial
+                    </div>
+                    <h1 class="text-4xl sm:text-5xl font-bold text-dark tracking-tight leading-[1.15]">
+                        Aprende a usar el <span class="text-brand">multímetro</span> con seguridad.
+                    </h1>
+                    <p class="text-base text-muted max-w-xl font-normal leading-relaxed">
+                        Domina las mediciones básicas sin quemar fusibles ni arriesgar tus componentes.
+                    </p>
+                    <div class="flex flex-wrap items-center gap-3 pt-2">
+                        <a class="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-lg bg-brand text-white text-sm font-medium shadow-sm hover:bg-brand-hover transition-colors"
+                            data-path="guia-del-multimetro" href="#">
+                            <span>Comenzar guía</span>
+                            <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+                        </a>
+                        <a class="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-lg border border-surface-border text-dark text-sm font-medium hover:bg-surface-muted transition-colors"
+                            data-path="chatbot" href="#">
+                            <span class="material-symbols-outlined text-[18px] text-muted">chat_bubble</span>
+                            <span>Consultar chatbot</span>
+                        </a>
+                    </div>
+                    <div class="pt-6 flex items-center gap-8 border-t border-surface-border text-xs text-muted">
+                        <div>
+                            <span class="block text-lg font-bold text-dark">100%</span>
+                            <span>Práctico</span>
+                        </div>
+                        <div class="h-8 w-px bg-surface-border"></div>
+                        <div>
+                            <span class="block text-lg font-bold text-dark">V · Ω · A</span>
+                            <span>Magnitudes clave</span>
+                        </div>
+                        <div class="h-8 w-px bg-surface-border"></div>
+                        <div>
+                            <span class="block text-lg font-bold text-dark">0 Daños</span>
+                            <span>Método guiado</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="lg:col-span-5">
+                    <div class="relative rounded-2xl overflow-hidden border border-surface-border bg-surface-muted p-2">
+                        <img class="w-full h-80 object-cover rounded-xl"
+                            data-alt="Banco de trabajo con multímetro y protoboard"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuA6gHdYjLarszg8fHMfMMlC5RCc5qzgiiNUShw-xCicxf09oPo6ld8HyQ7j9ipywzb-e3YtklGiZY8TwzvV0RctMf1926981QZXqI4MDuf1GyTWjBGaSnhtacMzyI18IPLNdQux9qTKylPmQanvaJ_M9VPJFSpL4PQ_JFkaQErL8_MVCqsQyQi_PDO7qk_ZdxCvF6I4rmRThoSDYZ-SiFYxhhHZPmTthDgnYbIrQMU" />
+                        <div
+                            class="mt-2.5 px-3 py-2 flex items-center justify-between text-xs text-muted bg-white rounded-lg border border-surface-border">
+                            <span class="flex items-center gap-1.5 font-medium text-dark">
+                                <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+                                Puntas calibradas
+                            </span>
+                            <span class="text-subtle">&lt; 0.2 Ω</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- DIAGRAMA INTERACTIVO SIMPLIFICADO -->
+        <section class="border-t border-surface-border bg-surface-muted py-20">
+            <div class="max-w-6xl mx-auto px-6">
+                <div class="max-w-2xl mb-12">
+                    <span class="text-xs font-semibold uppercase tracking-wider text-brand">Diagrama Interactivo</span>
+                    <h2 class="text-2xl sm:text-3xl font-bold text-dark mt-1">Conoce las partes del multímetro</h2>
+                    <p class="text-sm text-muted mt-2">Selecciona un elemento para ver su función técnica.</p>
+                </div>
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+                    <!-- Vector Multimeter Minimalista -->
+                    <div
+                        class="lg:col-span-5 bg-white border border-surface-border rounded-2xl p-6 flex flex-col items-center">
+                        <div class="w-full max-w-[280px] bg-slate-900 rounded-2xl p-4 shadow-sm text-white">
+                            <div class="flex justify-between items-center text-[10px] text-slate-400 mb-3 font-mono">
+                                <span>DMM-600</span>
+                                <span class="text-amber-400">CAT III</span>
+                            </div>
+                            <!-- Pantalla -->
+                            <button
+                                class="w-full bg-[#8fa48c] text-slate-950 rounded-lg p-3 text-left transition hover:brightness-95 focus:outline-none mb-4"
+                                id="part-screen" onclick="selectMultimeterPart('screen')">
+                                <div
+                                    class="flex justify-between text-[10px] font-mono text-slate-700 font-semibold mb-0.5">
+                                    <span>DC</span>
+                                    <span>AUTO</span>
+                                </div>
+                                <div class="flex justify-between items-baseline font-mono">
+                                    <span class="text-2xl font-bold" id="lcd-value">5.00</span>
+                                    <span class="text-sm font-semibold" id="lcd-unit">V</span>
+                                </div>
+                            </button>
+                            <!-- Selector -->
+                            <div class="flex justify-center my-3">
+                                <button
+                                    class="w-24 h-24 rounded-full bg-slate-800 border-2 border-slate-700 flex items-center justify-center relative hover:border-brand transition focus:outline-none"
+                                    id="part-dial" onclick="selectMultimeterPart('dial')">
+                                    <div class="w-2 h-8 bg-amber-400 rounded-full absolute top-1"></div>
+                                    <span class="text-[10px] text-slate-400 font-medium">MODO</span>
+                                </button>
+                            </div>
+                            <!-- Jacks -->
+                            <div class="grid grid-cols-3 gap-2 pt-3 border-t border-slate-800 text-center text-[10px]">
+                                <button class="p-1.5 rounded hover:bg-slate-800 text-slate-300"
+                                    onclick="selectMultimeterPart('current')">
+                                    <div class="w-6 h-6 rounded-full border-2 border-red-500 mx-auto mb-1"></div>
+                                    <span>10A</span>
+                                </button>
+                                <button class="p-1.5 rounded hover:bg-slate-800 text-slate-300"
+                                    onclick="selectMultimeterPart('com')">
+                                    <div class="w-6 h-6 rounded-full border-2 border-slate-500 mx-auto mb-1"></div>
+                                    <span>COM</span>
+                                </button>
+                                <button class="p-1.5 rounded hover:bg-slate-800 text-slate-300"
+                                    onclick="selectMultimeterPart('volts')">
+                                    <div class="w-6 h-6 rounded-full border-2 border-red-500 mx-auto mb-1"></div>
+                                    <span>V / Ω</span>
+                                </button>
+                            </div>
+                        </div>
+                        <!-- Botones de exploración -->
+                        <div class="flex flex-wrap gap-1.5 mt-5 justify-center">
+                            <button
+                                class="px-2.5 py-1 text-xs rounded-md bg-brand-light text-brand font-medium hover:bg-blue-100"
+                                onclick="selectMultimeterPart('screen')">Pantalla</button>
+                            <button class="px-2.5 py-1 text-xs rounded-md bg-surface-muted text-muted hover:text-dark"
+                                onclick="selectMultimeterPart('dial')">Perilla</button>
+                            <button class="px-2.5 py-1 text-xs rounded-md bg-surface-muted text-muted hover:text-dark"
+                                onclick="selectMultimeterPart('com')">Borne COM</button>
+                            <button class="px-2.5 py-1 text-xs rounded-md bg-surface-muted text-muted hover:text-dark"
+                                onclick="selectMultimeterPart('volts')">Borne V/Ω</button>
+                            <button class="px-2.5 py-1 text-xs rounded-md bg-surface-muted text-muted hover:text-dark"
+                                onclick="selectMultimeterPart('current')">Borne 10A</button>
+                        </div>
+                    </div>
+                    <!-- Detalle Limpio -->
+                    <div
+                        class="lg:col-span-7 bg-white border border-surface-border rounded-2xl p-8 flex flex-col justify-between min-h-[340px]">
+                        <div>
+                            <div class="inline-flex items-center gap-2 px-2.5 py-1 rounded bg-surface-muted text-xs font-semibold text-dark mb-4"
+                                id="detail-badge">
+                                Pantalla LCD
+                            </div>
+                            <h3 class="text-xl font-bold text-dark mb-2" id="detail-title">
+                                Visualización de lectura
+                            </h3>
+                            <p class="text-sm text-muted leading-relaxed" id="detail-desc">
+                                Presenta el valor medido, los decimales y la unidad activa (voltios, ohmios o amperios).
+                            </p>
+                        </div>
+                        <div class="mt-8 pt-6 border-t border-surface-border">
+                            <div class="flex items-start gap-3 text-xs text-body bg-surface-muted p-3.5 rounded-lg">
+                                <span
+                                    class="material-symbols-outlined text-brand text-[18px] shrink-0 mt-0.5">tips_and_updates</span>
+                                <span id="detail-tip">Si aparece "OL", el valor excede el rango seleccionado. Aumenta la
+                                    escala.</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- SECCIÓN: QUÉ APRENDERÁS (4 TARJETAS CONCISAS) -->
+        <section class="max-w-6xl mx-auto px-6 py-20">
+            <div class="max-w-xl mb-12">
+                <span class="text-xs font-semibold uppercase tracking-wider text-brand">Temario</span>
+                <h2 class="text-2xl sm:text-3xl font-bold text-dark mt-1">¿Qué aprenderás?</h2>
+                <p class="text-sm text-muted mt-2">Los cuatro fundamentos esenciales para tus prácticas.</p>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- 1. Voltaje -->
+                <div
+                    class="p-6 rounded-xl border border-surface-border bg-white hover:border-slate-300 transition-colors">
+                    <div class="w-10 h-10 rounded-lg bg-brand-light text-brand flex items-center justify-center mb-4">
+                        <span class="material-symbols-outlined text-[22px]">electric_bolt</span>
+                    </div>
+                    <h3 class="text-base font-bold text-dark mb-1">Medir voltaje</h3>
+                    <p class="text-xs text-muted leading-relaxed">
+                        Conexión en paralelo en corriente continua (DC) y alterna (AC).
+                    </p>
+                </div>
+                <!-- 2. Resistencia -->
+                <div
+                    class="p-6 rounded-xl border border-surface-border bg-white hover:border-slate-300 transition-colors">
+                    <div class="w-10 h-10 rounded-lg bg-brand-light text-brand flex items-center justify-center mb-4">
+                        <span class="material-symbols-outlined text-[22px]">tune</span>
+                    </div>
+                    <h3 class="text-base font-bold text-dark mb-1">Medir resistencia</h3>
+                    <p class="text-xs text-muted leading-relaxed">
+                        Medición con circuito 100% desenergizado para no dañar el equipo.
+                    </p>
+                </div>
+                <!-- 3. Continuidad -->
+                <div
+                    class="p-6 rounded-xl border border-surface-border bg-white hover:border-slate-300 transition-colors">
+                    <div class="w-10 h-10 rounded-lg bg-brand-light text-brand flex items-center justify-center mb-4">
+                        <span class="material-symbols-outlined text-[22px]">volume_up</span>
+                    </div>
+                    <h3 class="text-base font-bold text-dark mb-1">Continuidad</h3>
+                    <p class="text-xs text-muted leading-relaxed">
+                        Comprobación sonora de pistas, cables y fusibles en buen estado.
+                    </p>
+                </div>
+                <!-- 4. Corriente -->
+                <div
+                    class="p-6 rounded-xl border border-surface-border bg-white hover:border-slate-300 transition-colors">
+                    <div class="w-10 h-10 rounded-lg bg-brand-light text-brand flex items-center justify-center mb-4">
+                        <span class="material-symbols-outlined text-[22px]">linear_scale</span>
+                    </div>
+                    <h3 class="text-base font-bold text-dark mb-1">Medir corriente</h3>
+                    <p class="text-xs text-muted leading-relaxed">
+                        Apertura del circuito para conectar el instrumento en serie.
+                    </p>
+                </div>
+            </div>
+        </section>
+        <!-- ERRORES COMUNES (3 TARJETAS ESENCIALES) -->
+        <section class="border-t border-surface-border bg-surface-muted py-20">
+            <div class="max-w-6xl mx-auto px-6">
+                <div class="flex flex-col sm:flex-row sm:items-end justify-between mb-12 gap-4">
+                    <div>
+                        <span class="text-xs font-semibold uppercase tracking-wider text-rose-600">Prevención</span>
+                        <h2 class="text-2xl sm:text-3xl font-bold text-dark mt-1">Errores comunes a evitar</h2>
+                    </div>
+                    <a class="text-xs font-semibold text-brand hover:underline inline-flex items-center gap-1"
+                        data-path="preguntas-frecuentes" href="#">
+                        <span>Ver preguntas frecuentes</span>
+                        <span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+                    </a>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <!-- Error 1 -->
+                    <div class="p-6 rounded-xl bg-white border border-surface-border">
+                        <div class="w-9 h-9 rounded-lg bg-rose-50 text-rose-600 flex items-center justify-center mb-4">
+                            <span class="material-symbols-outlined text-[20px]">swap_horiz</span>
+                        </div>
+                        <h3 class="text-base font-bold text-dark mb-1">Puntas en borne equivocado</h3>
+                        <p class="text-xs text-muted leading-relaxed mb-4">
+                            Medir voltaje con la sonda en el borne de corriente provoca cortocircuito inmediato.
+                        </p>
+                        <div class="pt-3 border-t border-surface-border text-[11px] text-body">
+                            <span class="font-semibold text-dark">Regla:</span> Mantén la punta roja en V/Ω por defecto.
+                        </div>
+                    </div>
+                    <!-- Error 2 -->
+                    <div class="p-6 rounded-xl bg-white border border-surface-border">
+                        <div
+                            class="w-9 h-9 rounded-lg bg-amber-50 text-amber-600 flex items-center justify-center mb-4">
+                            <span class="material-symbols-outlined text-[20px]">flash_off</span>
+                        </div>
+                        <h3 class="text-base font-bold text-dark mb-1">Ohmios con energía activa</h3>
+                        <p class="text-xs text-muted leading-relaxed mb-4">
+                            Medir resistencia con la fuente encendida altera el valor y quema la protección interna.
+                        </p>
+                        <div class="pt-3 border-t border-surface-border text-[11px] text-body">
+                            <span class="font-semibold text-dark">Regla:</span> Apaga la fuente antes de medir ohmios.
+                        </div>
+                    </div>
+                    <!-- Error 3 -->
+                    <div class="p-6 rounded-xl bg-white border border-surface-border">
+                        <div class="w-9 h-9 rounded-lg bg-blue-50 text-brand flex items-center justify-center mb-4">
+                            <span class="material-symbols-outlined text-[20px]">call_split</span>
+                        </div>
+                        <h3 class="text-base font-bold text-dark mb-1">Amperímetro en paralelo</h3>
+                        <p class="text-xs text-muted leading-relaxed mb-4">
+                            Conectar el modo de corriente en paralelo quema el fusible instantáneamente.
+                        </p>
+                        <div class="pt-3 border-t border-surface-border text-[11px] text-body">
+                            <span class="font-semibold text-dark">Regla:</span> Abre el circuito y mide siempre en
+                            serie.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- BANNER FINAL SIMPLE -->
+        <section class="max-w-6xl mx-auto px-6 py-20">
+            <div
+                class="rounded-2xl border border-surface-border bg-white p-8 sm:p-12 flex flex-col md:flex-row items-center justify-between gap-8">
+                <div class="space-y-2 text-center md:text-left">
+                    <h2 class="text-2xl font-bold text-dark">¿Listo para tu práctica de laboratorio?</h2>
+                    <p class="text-sm text-muted">Accede al paso a paso guiado o consulta dudas puntuales con la IA.</p>
+                </div>
+                <div class="flex items-center gap-3 shrink-0">
+                    <a class="px-5 py-2.5 rounded-lg bg-brand text-white text-sm font-medium hover:bg-brand-hover transition-colors"
+                        data-path="guia-del-multimetro" href="#">
+                        Ir a la guía
+                    </a>
+                    <a class="px-5 py-2.5 rounded-lg border border-surface-border text-dark text-sm font-medium hover:bg-surface-muted transition-colors"
+                        data-path="chatbot" href="#">
+                        Preguntar al bot
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+    <script>
+        const multimeterData = {
+            screen: {
+                badge: "Pantalla LCD",
+                title: "Visualización de lectura",
+                desc: "Presenta el valor medido, los decimales y la unidad activa (voltios, ohmios o amperios).",
+                tip: "Si aparece 'OL', el valor excede el rango seleccionado. Aumenta la escala.",
+                val: "5.00",
+                unit: "V"
+            },
+            dial: {
+                badge: "Perilla Selectora",
+                title: "Selector de magnitud",
+                desc: "Permite cambiar entre voltaje, resistencia, corriente y prueba de continuidad.",
+                tip: "Nunca cambies de escala con las puntas conectadas a alta tensión.",
+                val: "12.0",
+                unit: "V DC"
+            },
+            com: {
+                badge: "Borne COM",
+                title: "Referencia común (tierra)",
+                desc: "Punto de referencia base del multímetro. La punta negra siempre permanece conectada aquí.",
+                tip: "La punta negra no cambia de posición en ninguna medición.",
+                val: "0.00",
+                unit: "COM"
+            },
+            volts: {
+                badge: "Borne V / Ω",
+                title: "Entrada para tensión y resistencia",
+                desc: "Punto donde se conecta la punta roja para medir voltaje, ohmios y continuidad.",
+                tip: "Es el conector principal para el 90% de tus prácticas de laboratorio.",
+                val: "1.00",
+                unit: "kΩ"
+            },
+            current: {
+                badge: "Borne 10A / mA",
+                title: "Entrada de corriente protegida",
+                desc: "Uso exclusivo para medir flujo de corriente en serie. Cuenta con fusible interno.",
+                tip: "Nunca conectes este borne en paralelo con una fuente.",
+                val: "25.0",
+                unit: "mA"
+            }
+        };
+
+        function selectMultimeterPart(key) {
+            const data = multimeterData[key];
+            if (!data) return;
+
+            document.getElementById("detail-badge").textContent = data.badge;
+            document.getElementById("detail-title").textContent = data.title;
+            document.getElementById("detail-desc").textContent = data.desc;
+            document.getElementById("detail-tip").textContent = data.tip;
+            document.getElementById("lcd-value").textContent = data.val;
+            document.getElementById("lcd-unit").textContent = data.unit;
+        }
+    </script>
+    <!-- FOOTER MINIMALISTA -->
+    <footer class="border-t border-surface-border bg-white">
+        <div
+            class="max-w-6xl mx-auto px-6 py-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-muted">
+            <div class="flex items-center gap-2">
+                <span class="font-bold text-dark">MultiAyuda</span>
+                <span>— Guía práctica de laboratorio para ingeniería.</span>
+            </div>
+            <p>© 2025 MultiAyuda. Libre de errores.</p>
+        </div>
+    </footer>
+</body>
+
+</html>

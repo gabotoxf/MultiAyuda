@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+
+<html lang="es">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta content="web_standard" name="shell-type" />
+    <title>MultiAyuda - Preguntas Frecuentes</title>
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <style>
+        @layer base {
+
+            html,
+            body {
+                margin: 0;
+                padding: 0;
+            }
+
+            body {
+                overscroll-behavior: none;
+            }
+
+            main>:first-child {
+                margin-top: 0 !important;
+            }
+
+            main>:last-child {
+                margin-bottom: 0 !important;
+            }
+        }
+
+        ::-webkit-scrollbar {
+            display: none;
+        }
+    </style>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script
+        id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "secondary-container": "#2170e4", "on-secondary-fixed": "#001a42", "surface-bright": "#faf8ff", "surface-container-high": "#e2e7ff", "error": "#ba1a1a", "on-primary": "#ffffff", "surface-variant": "#dae2fd", "on-secondary-fixed-variant": "#004395", "surface-container-lowest": "#ffffff", "inverse-primary": "#b4c5ff", "on-background": "#131b2e", "primary-container": "#2563eb", "outline-variant": "#c3c6d7", "tertiary-fixed-dim": "#ffb596", "outline": "#737686", "on-tertiary-fixed-variant": "#7d2d00", "on-tertiary-container": "#ffede6", "on-primary-container": "#eeefff", "on-tertiary": "#ffffff", "on-primary-fixed": "#00174b", "on-secondary-container": "#fefcff", "primary-fixed-dim": "#b4c5ff", "surface": "#faf8ff", "primary": "#004ac6", "inverse-on-surface": "#eef0ff", "background": "#faf8ff", "on-tertiary-fixed": "#360f00", "surface-container-low": "#f2f3ff", "surface-container": "#eaedff", "tertiary": "#943700", "on-secondary": "#ffffff", "on-surface": "#131b2e", "on-surface-variant": "#434655", "surface-container-highest": "#dae2fd", "on-error": "#ffffff", "tertiary-container": "#bc4800", "secondary-fixed": "#d8e2ff", "surface-tint": "#0053db", "inverse-surface": "#283044", "tertiary-fixed": "#ffdbcd", "secondary": "#0058be", "error-container": "#ffdad6", "on-error-container": "#93000a", "on-primary-fixed-variant": "#003ea8", "primary-fixed": "#dbe1ff", "surface-dim": "#d2d9f4", "secondary-fixed-dim": "#adc6ff" }, "borderRadius": { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, "fontFamily": { "body-md": ["Plus Jakarta Sans"], "body-sm": ["Plus Jakarta Sans"], "headline-sm": ["Plus Jakarta Sans"], "headline-md": ["Plus Jakarta Sans"], "headline-lg": ["Plus Jakarta Sans"] } } } };</script>
+</head>
+
+<body
+    class="bg-[#fbfcff] font-body-md text-[#131b2e] min-h-screen flex flex-col antialiased selection:bg-blue-100 selection:text-blue-900">
+    <header class="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md border-b border-slate-100">
+        <div class="h-16 max-w-6xl mx-auto px-6 flex items-center justify-between gap-4">
+            <div class="flex items-center gap-3 shrink-0"><img alt="Logo MultiAyuda" class="h-8 w-auto object-contain"
+                    src="https://lh3.googleusercontent.com/aida/AEtjO1VRWZu5mGNJzT-5g7Dx2OYgu5ruCaCI-BG6UOGJ6Eew4J-FpathKObqK90qLZrGABBjj-p_nej8qYK3OD6kgrM3j0JJPrLYuTutfe27_5N-2wPhMSNWTUPT8TZjnaj6AO_BY_wqthYfjWUz_AkztR4ga3eH8cUxsE5TKfUqKwK3MKYBxdBSZMr0f7tgTj2z0Yk_aGl3WE5qrKbOQxg9tpKMD0rCoQPEGiFbjhMvKovI" /><span
+                    class="font-bold text-lg text-primary tracking-tight">MultiAyuda</span></div>
+            <nav class="hidden md:flex items-center gap-1.5"><a
+                    class="text-sm font-medium text-slate-600 hover:text-slate-900 px-3 py-1.5 rounded-lg transition-colors"
+                    data-path="inicio" href="#">Inicio</a><a
+                    class="text-sm font-medium text-slate-600 hover:text-slate-900 px-3 py-1.5 rounded-lg transition-colors"
+                    data-path="guia-del-multimetro" href="#">Guía del multímetro</a><a aria-current="page"
+                    class="text-sm font-semibold text-primary bg-blue-50/80 px-3.5 py-1.5 rounded-lg transition-colors"
+                    data-path="preguntas-frecuentes" href="#">Preguntas frecuentes</a><a
+                    class="text-sm font-medium text-slate-600 hover:text-slate-900 px-3 py-1.5 rounded-lg transition-colors"
+                    data-path="chatbot" href="#">Chatbot</a></nav>
+            <div class="flex items-center gap-3 shrink-0"><span
+                    class="hidden lg:inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-100 text-slate-600 text-xs font-medium"><span
+                        class="material-symbols-outlined text-[14px]">school</span>Nivel Inicial</span><a
+                    class="inline-flex items-center gap-2 px-3.5 py-2 rounded-lg bg-primary text-white text-xs font-semibold hover:bg-primary-container transition-all"
+                    data-path="chatbot" href="#"><span
+                        class="material-symbols-outlined text-[16px]">smart_toy</span><span
+                        class="hidden sm:inline">Asistente IA</span></a><img alt="Profile"
+                    class="w-8 h-8 rounded-full object-cover ring-1 ring-slate-200"
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuBiot0zVi7nkfcBJ6g_i_ZpauRreDtasjFLeVzQO9McMmI_-XVDOCo0_cGph3kiHOhGYL6dg7i6wuoAbYK7RJtzumCdPHVxYjlhbTGeP8bOKWlpPLcuTc9JjZ1DhyFqFMTbZIrUc2XUwYTcK2atw8C0HZPeqLTesHHaMzK36x9W6acwL3EKimogxqyGnRuskyzrIdOQ4fy5RY6dCt0Nud7ro00uVnW5g6orn3iPyZI" />
+            </div>
+        </div>
+    </header>
+    <main class="w-full pt-20 flex-1">
+        <div class="max-w-3xl mx-auto px-6 py-12 flex flex-col">
+            <!-- Minimal Hero Section -->
+            <section class="text-center mb-10">
+                <span class="inline-block text-xs font-semibold uppercase tracking-wider text-primary mb-2">Ayuda rápida
+                    en laboratorio</span>
+                <h1 class="text-3xl sm:text-4xl font-bold text-slate-900 tracking-tight mb-3">
+                    Preguntas frecuentes
+                </h1>
+                <p class="text-base text-slate-500 max-w-xl mx-auto">
+                    Dudas esenciales y soluciones directas para medir con seguridad y confianza en tu banco de trabajo.
+                </p>
+                <!-- Subtle, Clean Search Bar -->
+                <div class="mt-8 relative max-w-xl mx-auto">
+                    <div class="relative flex items-center">
+                        <span
+                            class="material-symbols-outlined absolute left-4 text-slate-400 text-[20px] pointer-events-none">search</span>
+                        <input
+                            class="w-full h-12 pl-11 pr-10 rounded-full border border-slate-200 bg-white text-slate-800 text-sm placeholder:text-slate-400 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary shadow-[0_2px_8px_rgba(0,0,0,0.02)] transition-all"
+                            id="faq-search" placeholder="Buscar por tema: puntas, voltaje, OL, continuidad..."
+                            type="text" />
+                        <button aria-label="Limpiar búsqueda"
+                            class="hidden absolute right-3 text-slate-400 hover:text-slate-600 p-1 rounded-full transition-colors"
+                            id="clear-search">
+                            <span class="material-symbols-outlined text-[16px]">close</span>
+                        </button>
+                    </div>
+                </div>
+            </section>
+            <!-- Clean, Minimalist Accordion Container -->
+            <section
+                class="bg-white rounded-2xl border border-slate-100 shadow-[0_2px_12px_rgba(15,23,42,0.03)] divide-y divide-slate-100 overflow-hidden"
+                id="faq-container">
+                <!-- 1. Puntas: COM y Roja -->
+                <article class="faq-item group" data-keywords="puntas com negra roja bornes conexion terminal">
+                    <button aria-expanded="false"
+                        class="faq-trigger w-full px-6 py-5 flex items-center justify-between text-left gap-4 hover:bg-slate-50/60 transition-colors focus:outline-none">
+                        <div class="flex items-center gap-3">
+                            <span class="w-1.5 h-1.5 rounded-full bg-blue-500 shrink-0"></span>
+                            <span
+                                class="text-base font-semibold text-slate-800 group-hover:text-primary transition-colors">¿Dónde
+                                se conectan correctamente las puntas de prueba?</span>
+                        </div>
+                        <span
+                            class="material-symbols-outlined text-slate-400 group-hover:text-slate-600 transition-transform duration-200 faq-icon text-[20px] shrink-0">keyboard_arrow_down</span>
+                    </button>
+                    <div
+                        class="faq-content hidden px-6 pb-6 pt-1 text-slate-600 text-sm leading-relaxed border-t border-slate-50">
+                        <p class="mb-3">
+                            La punta <strong class="text-slate-800 font-medium">negra</strong> va siempre fija en el
+                            conector <code
+                                class="px-1.5 py-0.5 rounded bg-slate-100 font-mono text-xs text-slate-800">COM</code>
+                            (referencia común a tierra).
+                        </p>
+                        <p class="mb-3">
+                            La punta <strong class="text-slate-800 font-medium">roja</strong> se conecta en <code
+                                class="px-1.5 py-0.5 rounded bg-slate-100 font-mono text-xs text-slate-800">V/Ω/Hz</code>
+                            para medir voltaje, resistencia o continuidad. Solo muévela a <code
+                                class="px-1.5 py-0.5 rounded bg-slate-100 font-mono text-xs text-slate-800">mA</code> o
+                            <code class="px-1.5 py-0.5 rounded bg-slate-100 font-mono text-xs text-slate-800">10A</code>
+                            cuando vayas a medir corriente en serie.
+                        </p>
+                        <div class="p-3 rounded-lg bg-amber-50/70 text-amber-800 text-xs flex items-center gap-2">
+                            <span class="material-symbols-outlined text-[16px] text-amber-600 shrink-0">warning</span>
+                            <span>Nunca midas voltaje manteniendo la punta roja en el terminal de 10A, provocarás un
+                                cortocircuito.</span>
+                        </div>
+                    </div>
+                </article>
+                <!-- 2. Voltaje vs Corriente -->
+                <article class="faq-item group" data-keywords="voltaje corriente paralelo serie diferencia medir">
+                    <button aria-expanded="false"
+                        class="faq-trigger w-full px-6 py-5 flex items-center justify-between text-left gap-4 hover:bg-slate-50/60 transition-colors focus:outline-none">
+                        <div class="flex items-center gap-3">
+                            <span class="w-1.5 h-1.5 rounded-full bg-blue-500 shrink-0"></span>
+                            <span
+                                class="text-base font-semibold text-slate-800 group-hover:text-primary transition-colors">¿Cuál
+                                es la diferencia entre medir voltaje y corriente?</span>
+                        </div>
+                        <span
+                            class="material-symbols-outlined text-slate-400 group-hover:text-slate-600 transition-transform duration-200 faq-icon text-[20px] shrink-0">keyboard_arrow_down</span>
+                    </button>
+                    <div
+                        class="faq-content hidden px-6 pb-6 pt-1 text-slate-600 text-sm leading-relaxed border-t border-slate-50">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-2">
+                            <div class="p-3 rounded-lg bg-slate-50">
+                                <div class="text-xs font-semibold text-slate-900 mb-1">Voltaje (En Paralelo)</div>
+                                <p class="text-xs text-slate-600">Se mide directamente sobre los extremos del componente
+                                    sin desconectar nada del circuito.</p>
+                            </div>
+                            <div class="p-3 rounded-lg bg-slate-50">
+                                <div class="text-xs font-semibold text-slate-900 mb-1">Corriente (En Serie)</div>
+                                <p class="text-xs text-slate-600">Requiere apagar la fuente, abrir la pista física e
+                                    intercalar el multímetro para que la corriente pase por él.</p>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+                <!-- 3. Medir Resistencia -->
+                <article class="faq-item group" data-keywords="resistencia ohms energia desenergizado componente pata">
+                    <button aria-expanded="false"
+                        class="faq-trigger w-full px-6 py-5 flex items-center justify-between text-left gap-4 hover:bg-slate-50/60 transition-colors focus:outline-none">
+                        <div class="flex items-center gap-3">
+                            <span class="w-1.5 h-1.5 rounded-full bg-blue-500 shrink-0"></span>
+                            <span
+                                class="text-base font-semibold text-slate-800 group-hover:text-primary transition-colors">¿Cómo
+                                medir resistencia sin dañar el instrumento ni obtener datos falsos?</span>
+                        </div>
+                        <span
+                            class="material-symbols-outlined text-slate-400 group-hover:text-slate-600 transition-transform duration-200 faq-icon text-[20px] shrink-0">keyboard_arrow_down</span>
+                    </button>
+                    <div
+                        class="faq-content hidden px-6 pb-6 pt-1 text-slate-600 text-sm leading-relaxed border-t border-slate-50">
+                        <p class="mb-2">
+                            El circuito debe estar <strong class="text-slate-900 font-semibold">100%
+                                desenergizado</strong> y los capacitores descargados. La presencia de tensión altera el
+                            puente interno del óhmetro o puede quemar componentes de protección.
+                        </p>
+                        <p class="text-xs text-slate-500">
+                            Consejo: si la resistencia está soldada a la placa, desconecta al menos un pin para que los
+                            demás componentes en paralelo no alteren el valor.
+                        </p>
+                    </div>
+                </article>
+                <!-- 4. Continuidad y el Bip -->
+                <article class="faq-item group"
+                    data-keywords="continuidad diodo bocina bip sonido pista cable cortocircuito">
+                    <button aria-expanded="false"
+                        class="faq-trigger w-full px-6 py-5 flex items-center justify-between text-left gap-4 hover:bg-slate-50/60 transition-colors focus:outline-none">
+                        <div class="flex items-center gap-3">
+                            <span class="w-1.5 h-1.5 rounded-full bg-blue-500 shrink-0"></span>
+                            <span
+                                class="text-base font-semibold text-slate-800 group-hover:text-primary transition-colors">¿Cómo
+                                usar la función de continuidad y cuándo suena el bip?</span>
+                        </div>
+                        <span
+                            class="material-symbols-outlined text-slate-400 group-hover:text-slate-600 transition-transform duration-200 faq-icon text-[20px] shrink-0">keyboard_arrow_down</span>
+                    </button>
+                    <div
+                        class="faq-content hidden px-6 pb-6 pt-1 text-slate-600 text-sm leading-relaxed border-t border-slate-50">
+                        <p class="mb-2">
+                            Coloca el selector en el icono de diodo o bocina sonora. Junta las dos puntas para verificar
+                            el sonido. Luego coloca una punta al inicio y otra al final de la pista o cable.
+                        </p>
+                        <p class="text-xs text-slate-500">
+                            El aviso sonoro indica camino conductor continuo (resistencia inferior a 30-50 Ω). Si no
+                            suena, hay un corte o circuito abierto.
+                        </p>
+                    </div>
+                </article>
+                <!-- 5. Qué significa OL -->
+                <article class="faq-item group"
+                    data-keywords="ol over limit open loop fuera de rango pantalla display infinito">
+                    <button aria-expanded="false"
+                        class="faq-trigger w-full px-6 py-5 flex items-center justify-between text-left gap-4 hover:bg-slate-50/60 transition-colors focus:outline-none">
+                        <div class="flex items-center gap-3">
+                            <span class="w-1.5 h-1.5 rounded-full bg-blue-500 shrink-0"></span>
+                            <span
+                                class="text-base font-semibold text-slate-800 group-hover:text-primary transition-colors">¿Qué
+                                significa la lectura "OL" en la pantalla?</span>
+                        </div>
+                        <span
+                            class="material-symbols-outlined text-slate-400 group-hover:text-slate-600 transition-transform duration-200 faq-icon text-[20px] shrink-0">keyboard_arrow_down</span>
+                    </button>
+                    <div
+                        class="faq-content hidden px-6 pb-6 pt-1 text-slate-600 text-sm leading-relaxed border-t border-slate-50">
+                        <p class="mb-2">
+                            <strong class="text-slate-900 font-semibold">OL</strong> significa <em>Over Limit</em>
+                            (fuera de escala) o <em>Open Loop</em> (circuito abierto).
+                        </p>
+                        <p class="text-slate-600 mb-1">
+                            Indica que la magnitud medida supera el rango seleccionado actualmente en la perilla o que
+                            existe resistencia infinita (sin contacto físico). Si usas escala manual, gira el selector a
+                            una escala mayor (por ejemplo, de 2kΩ a 200kΩ).
+                        </p>
+                    </div>
+                </article>
+                <!-- 6. Errores críticos a evitar -->
+                <article class="faq-item group"
+                    data-keywords="errores seguridad fusible quemar peligro escala ac dc bateria">
+                    <button aria-expanded="false"
+                        class="faq-trigger w-full px-6 py-5 flex items-center justify-between text-left gap-4 hover:bg-slate-50/60 transition-colors focus:outline-none">
+                        <div class="flex items-center gap-3">
+                            <span class="w-1.5 h-1.5 rounded-full bg-blue-500 shrink-0"></span>
+                            <span
+                                class="text-base font-semibold text-slate-800 group-hover:text-primary transition-colors">¿Cuáles
+                                son los 3 errores más comunes que debes evitar?</span>
+                        </div>
+                        <span
+                            class="material-symbols-outlined text-slate-400 group-hover:text-slate-600 transition-transform duration-200 faq-icon text-[20px] shrink-0">keyboard_arrow_down</span>
+                    </button>
+                    <div
+                        class="faq-content hidden px-6 pb-6 pt-1 text-slate-600 text-sm leading-relaxed border-t border-slate-50">
+                        <ul class="space-y-2 text-xs text-slate-600">
+                            <li class="flex items-start gap-2">
+                                <span class="text-primary font-bold">1.</span>
+                                <span><strong>Medir voltaje con la punta en amperios (10A/mA):</strong> crea un
+                                    cortocircuito franco y quema el fusible interno.</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <span class="text-primary font-bold">2.</span>
+                                <span><strong>Medir resistencia con la fuente encendida:</strong> altera la lectura y
+                                    expone los circuitos internos del medidor.</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <span class="text-primary font-bold">3.</span>
+                                <span><strong>No revisar el modo AC / DC:</strong> medir continua en modo alterna
+                                    mostrará valores engañosos o cero.</span>
+                            </li>
+                        </ul>
+                    </div>
+                </article>
+            </section>
+            <!-- Empty state -->
+            <div class="hidden py-10 text-center flex-col items-center justify-center space-y-2 bg-white rounded-xl border border-slate-100 mt-4"
+                id="no-results">
+                <span class="material-symbols-outlined text-slate-300 text-[36px]">search_off</span>
+                <p class="text-sm font-medium text-slate-700">No encontramos coincidencias para esa búsqueda.</p>
+                <button class="text-xs font-semibold text-primary hover:underline" id="reset-filter-btn">
+                    Ver todas las preguntas
+                </button>
+            </div>
+            <!-- Minimalist Final CTA -->
+            <div
+                class="mt-14 pt-8 border-t border-slate-200/60 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
+                <div>
+                    <h3 class="text-base font-semibold text-slate-900">¿Tienes una duda sobre una práctica específica?
+                    </h3>
+                    <p class="text-xs text-slate-500 mt-0.5">El asistente responde preguntas sobre componentes, fórmulas
+                        y diagramas.</p>
+                </div>
+                <a class="inline-flex items-center gap-2 px-4 py-2.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-white text-xs font-semibold transition-all shrink-0 shadow-sm"
+                    data-path="chatbot" href="#">
+                    <span class="material-symbols-outlined text-[16px]">chat</span>
+                    <span>Preguntar al chatbot</span>
+                </a>
+            </div>
+        </div>
+    </main>
+    <footer class="w-full border-t border-slate-100 bg-white">
+        <div
+            class="max-w-6xl mx-auto px-6 py-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
+            <div class="flex items-center gap-2"><span class="font-semibold text-slate-700">MultiAyuda</span><span>•
+                    Laboratorio de Electrónica Experimental</span></div>
+            <div class="flex items-center gap-4"><a class="hover:text-primary transition-colors" data-path="inicio"
+                    href="#">Inicio</a><a class="hover:text-primary transition-colors" data-path="guia-del-multimetro"
+                    href="#">Guía de uso</a><a class="hover:text-primary transition-colors" data-path="chatbot"
+                    href="#">Chatbot</a></div>
+        </div>
+    </footer>
+    <script>
+        (function initFAQ() {
+            const searchInput = document.getElementById('faq-search');
+            const clearBtn = document.getElementById('clear-search');
+            const faqItems = document.querySelectorAll('.faq-item');
+            const noResults = document.getElementById('no-results');
+            const resetFilterBtn = document.getElementById('reset-filter-btn');
+
+            // Toggle clean accordion
+            faqItems.forEach(item => {
+                const trigger = item.querySelector('.faq-trigger');
+                const content = item.querySelector('.faq-content');
+                const icon = item.querySelector('.faq-icon');
+
+                trigger.addEventListener('click', () => {
+                    const isOpen = !content.classList.contains('hidden');
+                    // Close others for minimal relaxation
+                    faqItems.forEach(other => {
+                        if (other !== item) {
+                            other.querySelector('.faq-content').classList.add('hidden');
+                            other.querySelector('.faq-trigger').setAttribute('aria-expanded', 'false');
+                            other.querySelector('.faq-icon').classList.remove('rotate-180');
+                        }
+                    });
+
+                    if (isOpen) {
+                        content.classList.add('hidden');
+                        trigger.setAttribute('aria-expanded', 'false');
+                        icon.classList.remove('rotate-180');
+                    } else {
+                        content.classList.remove('hidden');
+                        trigger.setAttribute('aria-expanded', 'true');
+                        icon.classList.add('rotate-180');
+                    }
+                });
+            });
+
+            // Clean search filtering
+            function applySearch() {
+                const query = (searchInput.value || '').toLowerCase().trim();
+                let visibleCount = 0;
+
+                faqItems.forEach(item => {
+                    const titleText = item.querySelector('.faq-trigger span.text-base').textContent.toLowerCase();
+                    const contentText = item.querySelector('.faq-content').textContent.toLowerCase();
+                    const keywords = (item.getAttribute('data-keywords') || '').toLowerCase();
+
+                    const match = !query || titleText.includes(query) || contentText.includes(query) || keywords.includes(query);
+
+                    if (match) {
+                        item.classList.remove('hidden');
+                        visibleCount++;
+                    } else {
+                        item.classList.add('hidden');
+                    }
+                });
+
+                if (visibleCount === 0) {
+                    noResults.classList.remove('hidden');
+                    noResults.classList.add('flex');
+                } else {
+                    noResults.classList.add('hidden');
+                    noResults.classList.remove('flex');
+                }
+
+                if (query.length > 0) {
+                    clearBtn.classList.remove('hidden');
+                } else {
+                    clearBtn.classList.add('hidden');
+                }
+            }
+
+            searchInput.addEventListener('input', applySearch);
+
+            clearBtn.addEventListener('click', () => {
+                searchInput.value = '';
+                applySearch();
+                searchInput.focus();
+            });
+
+            resetFilterBtn.addEventListener('click', () => {
+                searchInput.value = '';
+                applySearch();
+            });
+        })();
+    </script>
+</body>
+
+</html>
